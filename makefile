@@ -6,6 +6,7 @@ image:
 
 
 report.tex: image
+	URL=`(awk -F'"' '/alt="" class="pull-left"/ { print "https://forecast.weather.gov/"$$2 }' /tmp/weatherdata)`; curl $$URL --output image.png
 	export CURRTEMP=`(awk -F'>|&' '/class="myforecast-current-lrg"/ { print $$2}' /tmp/weatherdata)`; envsubst < report.tmpl > report.tex
 	
 
