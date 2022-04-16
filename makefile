@@ -2,7 +2,7 @@
 
 
 image:
-	URL=`(awk -F'"' '/alt="" class="pull-left"/ { print "https://forecast.weather.gov/"$$2 }' /tmp/weatherdata)`; curl $$URL --output image.jpg
+	URL=`(awk -F'"' '/alt="" class="pull-left"/ { print "https://forecast.weather.gov/"$$2 }' /tmp/weatherdata)`; curl $$URL --output image.png
 
 
 report.tex: image
